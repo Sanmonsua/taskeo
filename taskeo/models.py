@@ -1,9 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User
+from home.models import UserProfile
 
 # Create your models here.
 class Category(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     name = models.CharField(max_length=64)
 
 
