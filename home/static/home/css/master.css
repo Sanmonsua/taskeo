@@ -42,11 +42,22 @@ body {
   border-radius: 50px;
 }
 
-.btn-primary:hover {
+.btn-primary:hover, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:focus {
   color: #000;
   background-color: #fff;
   border-color: #fff;
   box-shadow: 0 6px 10px 0 rgba(128, 98, 96, .16);
+}
+
+ {
+  color: #000;
+  background-color: #fff;
+  border-color: #fff;
+  box-shadow: 0 6px 10px 0 rgba(128, 98, 96, .16);
+}
+
+ {
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
 }
 
 a {
