@@ -7,12 +7,10 @@ from .forms import RegistrationForm
 
 def index(request):
     if request.user.is_authenticated:
-        context = {
-            "username" : request.user.username
-        }
-        return render(request, 'home/index.html', context=context)
 
-    return redirect('/login')
+        return redirect('/taskeo/welcome')
+
+    return redirect('/signin')
 
 
 def do_login(request):

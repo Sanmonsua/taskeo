@@ -5,58 +5,47 @@
 
 <head>
   <meta charset="utf-8">
-  <title>LogIn - Gradyent</title>
+  <title>Sign In - Gradyent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'home/css/master.css' %}">
+  <script src="https://kit.fontawesome.com/6333126af3.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div class="container py-5">
-    <div class="row h-100">
-      <div class="col-12 col-md-6 my-auto">
-        <img src="{% static 'home/img/logo.png' %}" width="100%" class="image-logo">
-      </div>
-      <div class="col-12 col-md-6 text-center my-auto">
-        <h3>WELCOME BACK!</h3>
-        <h4>GET YOUR THINGS DONE</h4>
-        <br>
-        <form class="form-signin" method="post" novalidate>
+  <div class="row h-100 w-100">
+    <div class="col-12 col-md-6 signin-section h-100">
+      <div class="container py-5 h-100">
+        <h2><strong>Sign in to <span class="gradyent-text">Gradyent</span></strong></h2>
+        <a href="#" class="btn btn-secondary btn-block w-75"><i style="margin-right:10px"class="fa fa-google" aria-hidden="true"></i><strong>Sign in with Google</strong></a>
+        <form method="post" novalidate>
           {% csrf_token %}
 
-          {% if form.non_field_errors %}
-          <div class="alert alert-danger" role="alert">
-            {% for error in form.non_field_errors %}
-            {{ error }}
-            {% endfor %}
-          </div>
-          {% endif %}
-
-          <div class="form-group">
             {% for field in form.visible_fields %}
-
-            {% if form.is_bound %}
-            {% if field.errors %}
-            {% render_field field class="form-control is-invalid  " placeholder=field.label %}
-            {% for error in field.errors %}
-            <div class="invalid-feedback">
-              {{ error }}
+            <div class="form-group">
+              {{ field.label_tag }}
+              {% render_field field class="form-control w-75" %}
             </div>
             {% endfor %}
-            {% else %}
-            {% render_field field class="form-control is-valid" placeholder=field.label %}
-            {% endif %}
-            {% else %}
-            {% render_field field class="form-control" placeholder=field.label %}
-            {% endif %}
-
-            {% endfor %}
-
+          {% if form.non_field_errors %}
+          <div class="alert alert-danger w-75" style="margin-top:30px; border-radius:10px;" role="alert">
+            Please enter a correct username and password
           </div>
-          <button class="btn btn-lg btn-primary btn-block" type="submit"><strong>Login</strong></button>
+          {% endif %}
+          <button type="submit" name="button" class="btn btn-primary w-25">Sign In</button>
         </form>
-        <p>Don't have an account yet? <span><a href="signup">Sign Up</a></span></p>
-
+        <p>Not a member? <a href="signup"><strong>Sign up</strong></a></p>
+      </div>
+    </div>
+    <div class="artwork-section col-6 h-100 w-100" style="background-color:black;" >
+      <div class="row py-5">
+        <div class="col container text-center my-auto">
+          <img src="{% static 'home/img/logo.png'%}" class="img-fluid" alt="" width="150" height="150">
+        </div>
+        <div class="col container py-5">
+          <h2 class="title w-100">Be a pro.</h2>
+          <h2 class="title w-100">Get things done.</h2>
+        </div>
       </div>
     </div>
   </div>
