@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 {% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -17,7 +18,7 @@
     <div class="col-12 col-md-6 signin-section h-100">
       <div class="container py-5 h-100">
         <h2><strong>Sign in to <span class="gradyent-text">Gradyent</span></strong></h2>
-        <a href="#" class="btn btn-secondary btn-block w-75"><i style="margin-right:10px"class="fa fa-google" aria-hidden="true"></i><strong>Sign in with Google</strong></a>
+        <a href="{% provider_login_url 'google' %}" class="btn btn-secondary btn-block w-75"><i style="margin-right:10px"class="fa fa-google" aria-hidden="true"></i><strong>Sign in with Google</strong></a>
         <form method="post" novalidate>
           {% csrf_token %}
 
