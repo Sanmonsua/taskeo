@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap');
+
 html,
 body {
   font-family: 'Inter', sans-serif;
@@ -15,19 +16,67 @@ body {
 }
 
 @media (max-width: 768px) {
-  .artwork-section{
-    display:none;
+  .artwork-section {
+    display: none;
   }
 }
 
-.artwork-section{
+.logo {
+  width: 150px;
+  height: 150px;
+  position: relative;
+}
+
+.logo img {
+  position: absolute;
+  left: 25%;
+  width: 150px;
+  height: 150px;
+}
+
+.logo-second {
+  animation-name: opacityFadeInOut;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes opacityFadeInOut {
+  0% {
+    opacity: 1;
+  }
+
+  15% {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity : 0.5;
+  }
+
+  85%{
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes gradyent-text {
+    to {
+      background-position: 200% center;
+    }
+  }
+
+.artwork-section {
   background-image: url("../img/artwork1.png");
   background-size: 100% 100%;
   color: white;
   font-weight: 900;
 }
 
-h2{
+h2 {
   font-weight: 900;
 }
 
@@ -46,20 +95,20 @@ h2{
   box-shadow: 0 6px 10px 0 rgba(128, 98, 96, .16);
 }
 
-.form-group{
+.form-group {
   margin-top: 30px;
 }
 
-label{
+label {
   font-weight: bold;
 }
 
-.form-control{
+.form-control {
   border-radius: 10px;
   background-color: #e3e2e2;
 }
 
-.form-control:hover, .form-control:not(:disabled):not(.disabled):active, .form-control:focus{
+.form-control:hover, .form-control:not(:disabled):not(.disabled):active, .form-control:focus {
   background-color: white;
   border-color: #eb443a;
   box-shadow: 0 0 0 0.1rem rgba(235, 68, 58, 1);
@@ -73,26 +122,39 @@ a:hover {
   color: #000;
 }
 
-.btn-primary{
+.btn-primary {
   margin-top: 20px;
   color: white;
   font-weight: bold;
-  background: linear-gradient(to right, #c2263e,#e7413a,#eb443a);
+  background: linear-gradient(to right, #c2263e, #e7413a, #eb443a);
   border-radius: 10px;
   border: none;
 }
 
-.btn-primary:hover, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:focus{
-  background: linear-gradient(to right,#eb443a,#e7413a,#c2263e);
+.btn-primary:hover, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:focus {
+  background: linear-gradient(to right, #eb443a, #e7413a, #c2263e);
   box-shadow: 0 6px 10px 0 rgba(128, 98, 96, .16);
 }
 
-.gradyent-text{
-  background: -webkit-linear-gradient(right,#eb443a, #c2263e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+@keyframes Anim {
+    0%{background-position:0% 0%}
+    30%{background-position:0% 0%}
+    50%{background-position:99% 0%}
+    70%{background-position:0% 0%}
+    100%{background-position:0% 0%}
 }
 
-p{
+.gradyent-text {
+  background: linear-gradient(to right, #eb443a, #c2263e);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation-name: Anim;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 4s;
+}
+
+p {
   margin-top: 40px;
 }
