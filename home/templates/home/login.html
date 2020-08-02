@@ -17,28 +17,30 @@
   <div class="row h-100 w-100">
     <div class="col-12 col-md-6 signin-section h-100">
       <div class="container py-5 h-100">
-        <h2><strong>Sign in to <span class="gradyent-text">Gradyent</span></strong></h2>
-        <a href="{% provider_login_url 'google' %}" class="btn btn-secondary btn-block w-75"><i style="margin-right:10px"class="fa fa-google" aria-hidden="true"></i><strong>Sign in with Google</strong></a>
+        <h2 class="mb-5"><strong>Sign in to <span class="gradyent-text">Gradyent</span></strong></h2>
+        <a href="{% provider_login_url 'google' %}" class="btn btn-secondary btn-block w-75 mb-4"><i style="margin-right:10px"class="fa fa-google" aria-hidden="true"></i><strong>Sign in with Google</strong></a>
         <form method="post" novalidate>
           {% csrf_token %}
 
-            {% for field in form.visible_fields %}
-            <div class="form-group">
-              {{ field.label_tag }}
-              {% render_field field class="form-control w-75" %}
-            </div>
-            {% endfor %}
-          {% if form.non_field_errors %}
-          <div class="alert alert-danger w-75" style="margin-top:30px; border-radius:10px;" role="alert">
-            Please enter a correct username and password
+          {% for field in form.visible_fields %}
+          <div class="form-group mb-4">
+            {{ field.label_tag }}
+            {% render_field field class="form-control w-75" %}
           </div>
+          {% endfor %}
+          {% if form.non_field_errors %}
+            <div class="alert alert-danger w-75 mb-4" style="margin-top:30px; border-radius:10px;" role="alert">
+              {% for error in form.non_field_errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
           {% endif %}
-          <button type="submit" name="button" class="btn btn-primary w-25">Sign In</button>
+          <button type="submit" name="button" class="btn btn-primary mb-5">Sign In</button>
         </form>
         <p>Not a member? <a href="signup"><strong>Sign up</strong></a></p>
       </div>
     </div>
-    <div class="artwork-section col-6 h-100 w-100" style="background-color:black;" >
+    <div class="artwork-section artwork-1 col-6 h-100 w-100" style="background-color:black;" >
       <div class="row py-5">
         <div class="col container text-center my-auto logo">
           <img class="logo-first" src="{% static 'home/img/logo.png' %}" alt="">

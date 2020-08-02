@@ -1,62 +1,55 @@
 {% load static %}
+{% load socialaccount %}
 {% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
   <meta charset="utf-8">
-  <title>LogIn - Gradyent</title>
+  <title>Sign In - Gradyent</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'home/css/master.css' %}">
+  <script src="https://kit.fontawesome.com/6333126af3.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div class="container py-5">
-    <div class="row h-100">
-      <div class="col-12 col-md-6 my-auto">
-        <img src="{% static 'home/img/logo.png' %}" width="100%" class="image-logo">
-      </div>
-      <div class="col-12 col-md-6 text-center my-auto">
-        <br>
-        <h3>YOU ARE MAKING THE RIGHT MOVE</h3>
-        <br>
-        <form class="form-signin" method="post" novalidate>
+  <div class="row h-100 w-100">
+    <div class="col-12 col-md-6 signin-section h-100">
+      <div class="container py-5 h-100">
+        <h2 class="mb-5"><strong>Join the <span class="gradyent-text">Gradyent</span> workzone</strong></h2>
+        <a href="{% provider_login_url 'google' %}" class="btn btn-secondary btn-block w-75 mb-4"><i style="margin-right:10px" class="fa fa-google" aria-hidden="true"></i><strong>Sign up with Google</strong></a>
+        <form method="post" novalidate>
           {% csrf_token %}
 
+          {% for field in form.visible_fields %}
+          <div class="form-group mb-4">
+            {{ field.label_tag }}
+            {% render_field field class="form-control w-75" %}
+          </div>
+          {% endfor %}
           {% if form.non_field_errors %}
-          <div class="alert alert-danger" role="alert">
-            {% for error in form.non_field_errors %}
-              {{ error }}
-            {% endfor %}
-          </div>
+            <div class="alert alert-danger w-75 mb-4" style="margin-top:30px; border-radius:10px;" role="alert">
+              {% for error in form.non_field_errors %}
+                {{ error }}
+              {% endfor %}
+            </div>
           {% endif %}
-
-          <div class="form-group">
-            {% for field in form.visible_fields %}
-
-              {% if form.is_bound %}
-                {% if field.errors %}
-                  {% render_field field class="form-control is-invalid  " placeholder=field.label %}
-                  {% for error in field.errors %}
-                    <div class="invalid-feedback">
-                      {{ error }}
-                    </div>
-                  {% endfor %}
-                {% else %}
-                  {% render_field field class="form-control is-valid" placeholder=field.label %}
-                {% endif %}
-              {% else %}
-                {% render_field field class="form-control" placeholder=field.label %}
-              {% endif %}
-
-            {% endfor %}
-
-          </div>
-          <button class="btn btn-lg btn-primary btn-block" type="submit"><strong>SIGN UP</strong></button>
+          <button type="submit" name="button" class="btn btn-primary mb-5">Sign Up</button>
         </form>
-        <p>Already a pro? <span><a href="login">Log in</a></span></p>
-
+        <p>Already a member? <a href="signin"><strong>Sign in</strong></a></p>
+      </div>
+    </div>
+    <div class="artwork-section artwork-2 col-6 h-100 w-100" style="background-color:black;">
+      <div class="row py-5">
+        <div class="col container text-center my-auto logo">
+          <img class="logo-first" src="{% static 'home/img/logo.png' %}" alt="">
+          <img class="logo-second" src="{% static 'home/img/logo2.png' %}" alt="">
+        </div>
+        <div class="col container py-5">
+          <h2 class="title w-100">Be a pro.</h2>
+          <h2 class="title w-100">Get things done.</h2>
+        </div>
       </div>
     </div>
   </div>

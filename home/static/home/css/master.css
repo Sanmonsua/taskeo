@@ -13,6 +13,7 @@ body {
   padding-left: 40px;
   background-color: white;
   border-radius: 10px;
+  overflow: auto;
 }
 
 @media (max-width: 768px) {
@@ -70,10 +71,18 @@ body {
   }
 
 .artwork-section {
-  background-image: url("../img/artwork1.png");
   background-size: 100% 100%;
   color: white;
   font-weight: 900;
+  overflow: hidden;
+}
+
+.artwork-1{
+  background-image: url("../img/artwork1.png");
+}
+
+.artwork-2{
+  background-image: url("../img/artwork2.png");
 }
 
 h2 {
@@ -93,10 +102,6 @@ h2 {
   background-color: #fff;
   border-color: #fff;
   box-shadow: 0 6px 10px 0 rgba(128, 98, 96, .16);
-}
-
-.form-group {
-  margin-top: 30px;
 }
 
 label {
@@ -153,8 +158,4 @@ a:hover {
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 4s;
-}
-
-p {
-  margin-top: 40px;
 }
