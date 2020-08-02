@@ -26,14 +26,20 @@
           <div class="form-group mb-4">
             {{ field.label_tag }}
             {% render_field field class="form-control w-75" %}
+            {% for error in field.errors %}
+            <div class="alert alert-danger w-75 mb-4" style="margin-top:30px; border-radius:10px;" role="alert">
+              {{ error }}
+            </div>
+          {% endfor %}
+
           </div>
           {% endfor %}
           {% if form.non_field_errors %}
-            <div class="alert alert-danger w-75 mb-4" style="margin-top:30px; border-radius:10px;" role="alert">
-              {% for error in form.non_field_errors %}
-                {{ error }}
-              {% endfor %}
-            </div>
+          <div class="alert alert-danger" role="alert">
+            {% for error in form.non_field_errors %}
+            {{ error }}
+            {% endfor %}
+          </div>
           {% endif %}
           <button type="submit" name="button" class="btn btn-primary mb-5">Sign Up</button>
         </form>
