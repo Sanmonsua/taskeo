@@ -8,7 +8,7 @@ from .forms import RegistrationForm
 def index(request):
     if request.user.is_authenticated:
 
-        return redirect('/taskeo/welcome')
+        return redirect('/taskeo')
 
     return redirect('/signin')
 

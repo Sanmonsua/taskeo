@@ -1,0 +1,40 @@
+html,
+body {
+  height: 100%;
+  background-color: black;
+}
+
+#index-body {
+  padding: 40px;
+  background-color: black;
+}
+
+#profile-pic{
+  border-radius: 50px;
+}
+
+.fa-caret-left, .fa-caret-right{
+    margin-right: 7rem;
+    margin-left: 7rem;
+}
+
+.card-body {
+  border-radius: 30px;
+  background: linear-gradient(to left, #473042, #1b1d2b, #1b1c2b);
+}
+
+.card-text{
+  margin-bottom: 35px;
+}
+
+.card-body .btn-primary{
+  border-radius: 25px;
+  border-color: #80354c;
+  background: linear-gradient(to right, rgba(255, 106, 151, 0.81), #80354c 60%);
+}
+
+.card-body .btn-primary:hover, .card-body .btn-primary:focus{
+  border-color: #80354c;
+  box-shadow: 0 6px 10px 0 rgba(128,98,96,.16);
+  background: linear-gradient(to left, rgba(255, 106, 151, 0.81), #80354c 60%);
+}
